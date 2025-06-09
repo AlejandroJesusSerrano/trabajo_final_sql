@@ -165,7 +165,7 @@ CREATE TABLE `device_employee` (
   FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id_employee`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 
--- Agregar FKs diferidas (por circularidad o dependencias tardías)
+-- Solucion a errores de circularidad
 ALTER TABLE `switch` ADD CONSTRAINT `fk_switch_port_in` FOREIGN KEY (`switch_port_in`) REFERENCES `switch_port` (`id_switch_port`) ON DELETE CASCADE;
 ALTER TABLE `switch` ADD CONSTRAINT `fk_wall_port_in` FOREIGN KEY (`wall_port_in`) REFERENCES `wall_port` (`id_wall_port`) ON DELETE CASCADE;
 ALTER TABLE `switch` ADD CONSTRAINT `fk_patch_port_in` FOREIGN KEY (`patch_port_in`) REFERENCES `patch_port` (`id_patch_port`) ON DELETE CASCADE;
